@@ -1,10 +1,11 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\CategoriaController;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Redirigir raíz a marcas
+Route::get('/', fn() => redirect('/marcas'));
 
-Route::resource('categorias', CategoriaController::class);
+// Vistas del frontend
+Route::view('/marcas',      'marcas.index');
+Route::view('/categorias',  'categorias.index');
+Route::view('/proveedores', 'proveedores.index');
